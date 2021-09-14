@@ -1,23 +1,29 @@
 class Photo{
-    width = 8;
-    height = 10;
-    constructor(width, height){
+    constructor(width = 8, height = 10){
         this.width = width;
         this.height = height;
     }
-}
 
-function price(width, height){
-    var price;
-    if(width == 8 && height == 10){
-        price = 4;
-    }else if(width == 10 && height == 12){
-        price = 6;
-    }else{
-        price = 10;
+    price(){
+        let finalPrice;
+        if(this.width == 8 && this.height == 10){
+            finalPrice = 4;
+        }else if(this.width == 10 && this.height == 12){
+            finalPrice = 6;
+        }else{
+            finalPrice = 10;
+        }
+
+        return finalPrice;
+    }
+
+    toString(){
+        return `This is a ${this.width} by ${this.height} photo and it costs ${this.price()}.`
     }
 }
 
-function toString(){
-    
-}
+let photo1 = new Photo(8, 10);
+console.log(photo1.toString());
+
+let photo2 = new Photo();
+console.log(photo2.toString());
