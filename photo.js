@@ -22,8 +22,44 @@ class Photo{
     }
 }
 
-let photo1 = new Photo(8, 10);
-console.log(photo1.toString());
+class MattedPhoto extends Photo{
+    constructor(width, height, color){
+        super(width, height);
+        this.color = color;
+    }
 
-let photo2 = new Photo();
-console.log(photo2.toString());
+    price(){
+        this.finalPrice = super.price() + 10;
+        return this.finalPrice;
+    }
+
+    toString(){
+        return `This is a ${this.width} by ${this.height} matted ${this.color} photo and it costs ${this.price()}.`
+    }
+}
+
+class FramedPhoto extends Photo{
+    constructor(width, height, frameMaterial, frameStyle){
+        super(width, height);
+        this.frameMaterial = frameMaterial;
+        this.frameStyle = frameStyle;
+    }
+
+    price(){
+        this.finalPrice = super.price() + 25;
+        return this.finalPrice;
+    }
+
+    toString(){
+        return `This is a ${this.width} by ${this.height} ${this.frameMaterial} framed photo. The style is ${this.frameStyle} and it costs ${this.price()}.`
+    }
+}
+
+let framedPhoto1 = new FramedPhoto(8, 10, "Silver", "Modern");
+console.log(framedPhoto1.toString());
+
+let mattedPhoto1 = new MattedPhoto(10, 12, "Red");
+console.log(mattedPhoto1.toString());
+
+let framedPhoto1 = new FramedPhoto(15, 15, "Wood", "Old Fashion");
+console.log(framedPhoto1.toString());
